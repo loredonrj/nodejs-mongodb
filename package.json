@@ -1,7 +1,7 @@
 {
   "name": "nodejs-mongodb",
   "version": "1.0.0",
-  "description": "Complete Guide to Setting Up NodeJS and MongoDB on GitHub Codespaces",
+  "description": "SetUp of NodeJS and MongoDB on GitHub Codespaces",
   "type": "module",
   "main": "index.js",
   "scripts": {
