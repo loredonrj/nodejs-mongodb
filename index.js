@@ -1,13 +1,17 @@
 //step 1 : Create Server --------------------------------
-const express = require("express");
+import express from 'express';
+import mongoose from 'mongoose';
+import bodyParser from 'body-parser';
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 
-import BlogCategoryRouter from "./routes/Blog/blogCategoryRoute";
-//step 17 : Import userRouter
-import userRouter from "./routes/Users/userRoute";
+//step 17 : Import Routers
+import BlogCategoryRouter from "/workspaces/nodejs-mongodb/routes/Blog/blogCategoryRoute.js";
+import userRouter from "/workspaces/nodejs-mongodb/routes/Users/userRoute.js";
+import blogRouter from "/workspaces/nodejs-mongodb/routes/Blog/blogRoute.js";
+
 
 app.use("/api/user", userRouter);
 app.use("/api/blog", blogRouter);

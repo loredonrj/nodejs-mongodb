@@ -1,6 +1,6 @@
 //step 8 : Import Models into Controllers --------------------------------
 
-import { User } from "../../models/Users/userModel.js";
+import User from "/workspaces/nodejs-mongodb/models/Users/userModel.js";
 
 import jwt from "jsonwebtoken";
 
@@ -116,7 +116,7 @@ const loginUser = async (req, res) => {
         if (findUser && await findUser.isPasswordMatched(password)) {
            
             //store user id inside token and encrypt token (because we decide to look for the user by its id but it could be any other field)
-            const token = jwt.sign({ id:findUser?User._id}, process.env.JWT_SECRET,{expiresIn:"1d"});
+            const token = jwt.sign({ id:findUser?.User._id}, process.env.JWT_SECRET,{expiresIn:"1d"});
             
             //.sign() produces a JSON Web Token String
             //?user.field allows you to access user fields without having directly access to the user object, '?' finds it automatically
@@ -149,7 +149,7 @@ const loginUser = async (req, res) => {
 //step 11 : Export Controller modules--------------------------------
 
 
-export { createUser, getUsers, deleteUser, updateUser, loginUser }
+export { createUser, getUsers, getUser, deleteUser, updateUser, loginUser }
 
 /* ES5 :
 

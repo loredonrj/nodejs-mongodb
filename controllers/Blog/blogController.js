@@ -1,4 +1,4 @@
-import { Blog } from "../../models/Blog/blogModel.js";
+import { Blog } from "/workspaces/nodejs-mongodb/models/Blog/blogModel.js";
 
 //createBlogPost --------------------------------
 const postBlog = async (req, res) => {

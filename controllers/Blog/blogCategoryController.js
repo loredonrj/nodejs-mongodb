@@ -1,7 +1,8 @@
-import { blogCategoryModel } from "../models/Blog/blogCategoryModel.js";
+import { blogCategoryModel } from "/workspaces/nodejs-mongodb/models/Blog/blogCategoryModel.js" ;
 import slugify from "slugify";
 
 //createBlogPostCategory --------------------------------
+
 const postCategory = async (req, res) => {
     const { title } = req.body;
     try {
@@ -26,4 +27,4 @@ const postCategory = async (req, res) => {
 //updateBlogPostCategory --------------------------------
 
 
-export { postCategory };
+export default postCategory;
