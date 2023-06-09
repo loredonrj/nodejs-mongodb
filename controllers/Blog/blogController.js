@@ -6,7 +6,7 @@ const postBlog = async (req, res) => {
     const post = await Blog.create(req.body);
     res.json(post);
   } catch (error) {
-    res.json({ error: error });
+    res.json( error);
   }
 };
 
@@ -17,7 +17,7 @@ const getBlog = async (req, res) => {
     const post = await Blog.find().populate("postedBy"); //we populate the post variable with the user data in the postedBy field (which is is an object)
     res.json(post);
   } catch (error) {
-    res.json({ error: error });
+    res.json(error);
   }
 };
 
@@ -33,10 +33,4 @@ const getBlog = async (req, res) => {
 
 export { postBlog, getBlog };
 
-/* es6 style: 
-module.exports = {
-  postBlog,
-  getBlog,
-};
-*/
 

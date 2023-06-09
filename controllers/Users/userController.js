@@ -20,13 +20,13 @@ const createUser = async (req, res) => {
         const findUser = await User.findOne({ email: req.body.email });
         if (findUser) {
 
-            res.json({msg:"user already exists"});
+            res.status(200).json({status:true, message:"user already exists"});
         }
 
     //If user not found, create a new user
 
       const newUser = await User.create(req.body);
-      res.json(newUser);
+      res.status(200).json(newUser);
 
         } catch (error) {
         res.json({error:error});
