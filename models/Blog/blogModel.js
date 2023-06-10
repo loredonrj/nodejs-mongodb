@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-//es5: const mongoose = require('mongoose');
 
 // step 5: Define blog Schema for the blog Model
 
@@ -14,10 +13,10 @@ desc:{
 },
 postedBy:{
     type: mongoose.Schema.Types.ObjectId,
-    ref:'User',   
+    //ref:'User', the reference to the User Model is mandatory after the preceding 'type' field
+    ref : 'User',
     required: true
 }
-    //the reference to the User Model is mandatory after the preceding 'type' field
 
 },{timestamps:true})
 

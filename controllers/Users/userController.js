@@ -1,6 +1,6 @@
 //step 8 : Import Models into Controllers --------------------------------
 
-import User from "/workspaces/nodejs-mongodb/models/Users/userModel.js";
+import { User } from "../../models/Users/userModel.js";
 
 import jwt from "jsonwebtoken";
 
@@ -20,13 +20,13 @@ const createUser = async (req, res) => {
         const findUser = await User.findOne({ email: req.body.email });
         if (findUser) {
 
-            res.status(200).json({status:true, message:"user already exists"});
+            res.json({msg:"user already exists"});
         }
 
     //If user not found, create a new user
 
       const newUser = await User.create(req.body);
-      res.status(200).json(newUser);
+      res.json(newUser);
 
         } catch (error) {
         res.json({error:error});
@@ -149,17 +149,6 @@ const loginUser = async (req, res) => {
 //step 11 : Export Controller modules--------------------------------
 
 
-export { createUser, getUsers, getUser, deleteUser, updateUser, loginUser }
+export { createUser, getUsers, deleteUser, updateUser, loginUser }
 
-/* ES5 :
-
-module.exports = {
-createUser,
-getUsers,
-getUser,
-deleteUser,
-updateUser,
-loginUser,
-};
-*/
 

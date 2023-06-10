@@ -19,4 +19,4 @@ slug:{
 
 // Compile model from schema and export it
 
-export const blogCategoryModel = mongoose.model("BlogCategory",blogCategorySchema)
+export const blogCategoryModel = mongoose.model("BlogCategory",blogSchema)//
