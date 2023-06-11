@@ -5,6 +5,7 @@ import { User } from "../../models/Users/userModel.js";
 //step 9 : Import dependencies for Controllers --------------------------------
 
 import jwt from "jsonwebtoken";
+import expressAsyncHandler from "express-async-handler";
 
 //step 10 : Implement controller components -----------------------------------------------------------
 
@@ -33,19 +34,19 @@ const createUser = async (req, res) => {
 
 //getUsers (all users) component --------------------------------
 
-const getUsers = async (req, res) => {
+const getUsers = expressAsyncHandler(
 
-try {
-    const users = await User.find().populate("userName");
-    res.json(users);
-    
-} catch (error) {
-    res.json({error:error});
-}
+    async (req, res) => {
 
-    
-    
-};
+        try {
+            const users = await User.find().populate("userName");
+            res.json(users);
+            
+        } catch (error) {
+            throw new Error(error);
+        }              
+        }
+)
 
 //getUser (single use) component : we can find him by any of the fields of the UserModel (id, email, etc...)--------------------------------
 
