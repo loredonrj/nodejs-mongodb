@@ -6,6 +6,7 @@ import { User } from "../../models/Users/userModel.js";
 
 import jwt from "jsonwebtoken";
 import expressAsyncHandler from "express-async-handler";
+import mailToSend from "../../config/sendMail.js";
 
 //step 10 : Implement controller components -----------------------------------------------------------
 
@@ -34,15 +35,23 @@ const createUser = async (req, res) => {
 
 //getUsers (all users) component --------------------------------
 
-const getUsers = expressAsyncHandler(
-
-    async (req, res) => {
+const getUsers = expressAsyncHandler( async (req, res) => {
 
         try {
-            const users = await User.find().populate("userName");
+            const users = await User.find();
+
+            const emaildata = {
+                to: "mloredon@ecsselformations.com",
+                subject: "Mi Querida",
+                text: "Hola desde internet",
+                html: "<h1>Hola desde internet</h1>"
+            }
+            mailToSend(emaildata);
+
             res.json(users);
             
         } catch (error) {
+            res.status(400)
             throw new Error(error);
         }              
         }
