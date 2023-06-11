@@ -12,7 +12,8 @@ slug:{
     required: true,
     type: String,
     unique: true,
-}
+    minLength: 4,
+},
 
 },{timestamps:true})
 

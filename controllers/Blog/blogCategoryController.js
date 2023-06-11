@@ -1,4 +1,5 @@
 import { blogCategoryModel } from "../../models/Blog/blogCategoryModel.js";
+import { Blog} from "../../models/Blog/blogModel.js";
 import slugify from "slugify";
 
 //create Blog Category --------------------------------
@@ -30,18 +31,20 @@ const getBlogCategories = async (req, res) => {
 
 //get Blog Category (category of single post) --we can find it by any of the fields of the Model --
 
+/*
 const findBlogCategory = async (req, res) => {
     try {
     const { title } = req.params;
-      const category = await blogCategoryModel.findById(title);
+      const category = await blogModel.findOne(title); // ✅ TODO, don't know how to do yet, I first need to add a category field to the Blog Model 🤔❓
       res.status(200).json({ status: true, message: 'blog category found', category });
     } catch (error) {
       res.status(400).json({ status: false, message: 'something went wrong' });
     }
   };
+  */
 
-//update Blog Category --------------------------------
-
+//update Blog Category // ✅ TODO, don't know how to do yet 🤔❓ --------------------------------
+/*
 const updateBlogCategory = async (req, res) => {
 
     try {
@@ -58,11 +61,11 @@ const updateBlogCategory = async (req, res) => {
       res.status(400).json({ status: false, message: 'something went wrong' });
     }
   };
+*/
 
 
-
-//delete Blog Category --------------------------------
-
+//delete Blog Category ✅ TODO, don't know how to do yet 🤔❓ --------------------------------
+/*
 const deleteBlogCategory = async (req, res) => {
     try {
     const { title } = req.params; //or req.body ?
@@ -72,6 +75,6 @@ const deleteBlogCategory = async (req, res) => {
       res.status(400).json({ status: false, message: 'something went wrong' });
     }
   };
+*/
 
-
-export { postCategory, getBlogCategories, findBlogCategory, updateBlogCategory, deleteBlogCategory  };
+export { postCategory, getBlogCategories};
