@@ -5,7 +5,7 @@ Part 33.7 : Using Middleware functions
 Part 36.1.5: Create Middleware
 */
 
-import User from "../models/Users/userModel.js";
+import { User } from "../models/Users/userModel.js";
 import jwt from "jsonwebtoken";
 
 export const authMiddleware = async (req, res, next) => {

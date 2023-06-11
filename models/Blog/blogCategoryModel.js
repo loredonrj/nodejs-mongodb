@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-//es5: const mongoose = require('mongoose');
 
 // step 5: Define blog Schema for the blog Model
 
@@ -19,4 +18,4 @@ slug:{
 
 // Compile model from schema and export it
 
-export const blogCategoryModel = mongoose.model("BlogCategory",blogSchema)//
+export const blogCategoryModel = mongoose.model("BlogCategoryModel",blogCategorySchema)

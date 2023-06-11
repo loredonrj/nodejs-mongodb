@@ -1,4 +1,4 @@
-import { blogCategoryModel } from "../models/Blog/blogCategoryModel.js";
+import { blogCategoryModel } from "../../models/Blog/blogCategoryModel.js";
 import slugify from "slugify";
 
 //create Blog Category --------------------------------

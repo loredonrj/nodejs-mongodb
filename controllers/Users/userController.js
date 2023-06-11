@@ -149,6 +149,6 @@ const loginUser = async (req, res) => {
 //step 11 : Export Controller modules--------------------------------
 
 
-export { createUser, getUsers, deleteUser, updateUser, loginUser }
+export { createUser, getUser, deleteUser, updateUser, loginUser }
 
 

@@ -61,11 +61,6 @@ return await bcrypt.compare(enteredPassword,this.password)
     // the returned value is true or false
 }
 
-// step 6: Compile model from schema ----------------------------------------------------------------
+// step 6: Compile model from schema and export userModel ----------------------------------------------------------------
 
-const User = mongoose.model("User", userSchema);
-
-// step 7: Export userModel----------------------------------------------------------------
-
-export default User;
-//module.exports = User;
+export const User = mongoose.model("User", userSchema);
