@@ -5,7 +5,6 @@ import { User } from "../../models/Users/userModel.js";
 //step 9 : Import dependencies for Controllers --------------------------------
 
 import jwt from "jsonwebtoken";
-import generateToken from "../../utils/jwtToken.js";
 
 //step 10 : Implement controller components -----------------------------------------------------------
 
@@ -120,12 +119,12 @@ const loginUser = async (req, res) => {
             //.sign() produces a JSON Web Token String
             //?user.field allows you to access user fields without having directly access to the user object, '?' finds it automatically
             
-            //we pass user data to the token via the res object.
+            //we send the user data plus the token (created by the authMw from the Bearer Token present in the authorization headers) to the frontend via the res object.
             res.json({
                 _id: findUser?._id,
                 firstname: findUser?.userName,
                 email: findUser?.email,
-                token: generateToken(findUser?._id),
+                token: findUser?._id
               });
         }
 
@@ -135,7 +134,7 @@ const loginUser = async (req, res) => {
             res.json({message:"Invalid credentials"});
         }
         } catch (error) {
-        res.json({error:error});
+        res.json({error, message:"There is an error in the response.json"});
         }
     };
 
